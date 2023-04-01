@@ -157,8 +157,6 @@ namespace GoilRecords
         /// <param name="childForm">form to open in panel</param>
         private void OpenChildForm(Form childForm)
         {
-            
-
             if (childForm.Name != currentChildForm.Name) 
             {
                 // open only one form
@@ -173,9 +171,8 @@ namespace GoilRecords
                 childForm.BringToFront();
                 childForm.Show();
             }
-            
-
         }
+
         private void ibtnClose_MouseClick(object sender, MouseEventArgs e)
         {
             Application.Exit();
@@ -268,11 +265,17 @@ namespace GoilRecords
 
             if (result == DialogResult.Yes)
             {
-                this.Hide();
+
                 LoginForm login = new LoginForm();
-                login.ShowDialog();
+                this.Hide();
+
+                // exits all working background applications
+                login.FormClosed += (s, args) => this.Close();
+                login.FormClosed += (s, args) => Application.Exit();
+
+                login.Show();
                 this.Close();
-                
+
             }
            
         }
