@@ -20,5 +20,6 @@ namespace GoilRecords
         public string Person_mobile { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string DefaultPass { get; set; }
     }
 }
