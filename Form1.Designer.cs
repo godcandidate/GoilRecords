@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlSideMenu = new System.Windows.Forms.Panel();
+            this.ibtndefaultPass = new FontAwesome.Sharp.IconButton();
+            this.ibtnlogOut = new FontAwesome.Sharp.IconButton();
             this.ibtnManagerUser = new FontAwesome.Sharp.IconButton();
             this.ibtnChangePassword = new FontAwesome.Sharp.IconButton();
             this.ibtnRemoveRecord = new FontAwesome.Sharp.IconButton();
@@ -46,7 +48,6 @@
             this.gunacircleUserPic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.iconCurrentForm = new FontAwesome.Sharp.IconPictureBox();
             this.pnlDesktop = new System.Windows.Forms.Panel();
-            this.ibtnlogOut = new FontAwesome.Sharp.IconButton();
             this.pnlSideMenu.SuspendLayout();
             this.pnlTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconStatus)).BeginInit();
@@ -57,6 +58,7 @@
             // pnlSideMenu
             // 
             this.pnlSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.pnlSideMenu.Controls.Add(this.ibtndefaultPass);
             this.pnlSideMenu.Controls.Add(this.ibtnlogOut);
             this.pnlSideMenu.Controls.Add(this.ibtnManagerUser);
             this.pnlSideMenu.Controls.Add(this.ibtnChangePassword);
@@ -70,6 +72,52 @@
             this.pnlSideMenu.Name = "pnlSideMenu";
             this.pnlSideMenu.Size = new System.Drawing.Size(200, 661);
             this.pnlSideMenu.TabIndex = 0;
+            // 
+            // ibtndefaultPass
+            // 
+            this.ibtndefaultPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.ibtndefaultPass.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ibtndefaultPass.FlatAppearance.BorderSize = 0;
+            this.ibtndefaultPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtndefaultPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ibtndefaultPass.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ibtndefaultPass.IconChar = FontAwesome.Sharp.IconChar.PersonChalkboard;
+            this.ibtndefaultPass.IconColor = System.Drawing.Color.Gainsboro;
+            this.ibtndefaultPass.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtndefaultPass.IconSize = 35;
+            this.ibtndefaultPass.Location = new System.Drawing.Point(0, 460);
+            this.ibtndefaultPass.Name = "ibtndefaultPass";
+            this.ibtndefaultPass.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.ibtndefaultPass.Size = new System.Drawing.Size(200, 60);
+            this.ibtndefaultPass.TabIndex = 10;
+            this.ibtndefaultPass.Text = "Set Default Password";
+            this.ibtndefaultPass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ibtndefaultPass.UseVisualStyleBackColor = false;
+            this.ibtndefaultPass.Click += new System.EventHandler(this.ibtndefaultPass_Click);
+            // 
+            // ibtnlogOut
+            // 
+            this.ibtnlogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.ibtnlogOut.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ibtnlogOut.FlatAppearance.BorderSize = 0;
+            this.ibtnlogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnlogOut.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ibtnlogOut.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ibtnlogOut.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.ibtnlogOut.IconColor = System.Drawing.Color.Gainsboro;
+            this.ibtnlogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnlogOut.IconSize = 35;
+            this.ibtnlogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ibtnlogOut.Location = new System.Drawing.Point(0, 624);
+            this.ibtnlogOut.Name = "ibtnlogOut";
+            this.ibtnlogOut.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.ibtnlogOut.Size = new System.Drawing.Size(200, 37);
+            this.ibtnlogOut.TabIndex = 9;
+            this.ibtnlogOut.Text = "    Log Out";
+            this.ibtnlogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ibtnlogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ibtnlogOut.UseVisualStyleBackColor = false;
+            this.ibtnlogOut.Click += new System.EventHandler(this.ibtnlogOut_Click);
             // 
             // ibtnManagerUser
             // 
@@ -366,33 +414,11 @@
             // pnlDesktop
             // 
             this.pnlDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.pnlDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDesktop.Location = new System.Drawing.Point(200, 64);
             this.pnlDesktop.Name = "pnlDesktop";
             this.pnlDesktop.Size = new System.Drawing.Size(884, 597);
             this.pnlDesktop.TabIndex = 2;
-            // 
-            // ibtnlogOut
-            // 
-            this.ibtnlogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.ibtnlogOut.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ibtnlogOut.FlatAppearance.BorderSize = 0;
-            this.ibtnlogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibtnlogOut.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ibtnlogOut.ForeColor = System.Drawing.Color.Gainsboro;
-            this.ibtnlogOut.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.ibtnlogOut.IconColor = System.Drawing.Color.Gainsboro;
-            this.ibtnlogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnlogOut.IconSize = 35;
-            this.ibtnlogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnlogOut.Location = new System.Drawing.Point(0, 624);
-            this.ibtnlogOut.Name = "ibtnlogOut";
-            this.ibtnlogOut.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.ibtnlogOut.Size = new System.Drawing.Size(200, 37);
-            this.ibtnlogOut.TabIndex = 9;
-            this.ibtnlogOut.Text = "    Log Out";
-            this.ibtnlogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnlogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ibtnlogOut.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -436,6 +462,7 @@
         private FontAwesome.Sharp.IconButton ibtnManagerUser;
         private FontAwesome.Sharp.IconButton ibtnRemoveRecord;
         private FontAwesome.Sharp.IconButton ibtnlogOut;
+        private FontAwesome.Sharp.IconButton ibtndefaultPass;
     }
 }
 
