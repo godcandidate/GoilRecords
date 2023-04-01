@@ -184,5 +184,23 @@ namespace GoilRecords
             }
             
         }
+
+        private void ibtnuseDate_Click(object sender, EventArgs e)
+        {
+            int wordindex = cmbSearchBy.SelectedIndex;
+
+            if (wordindex == 2 || wordindex == 3)
+                pnlSearchDate.Visible = true;
+            else if (wordindex == -1)
+                MessageBox.Show("Select a searchby ", "Search Error");
+            else
+                MessageBox.Show("Searchby selected is not date/time type ", "Search Error");
+
+        }
+
+        private void btncloseDate_Click_1(object sender, EventArgs e)
+        {
+            pnlSearchDate.Visible = false;
+        }
     }
 }
