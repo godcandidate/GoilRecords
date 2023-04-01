@@ -13,19 +13,17 @@ namespace GoilRecords
     public partial class LoginForm : Form
     {
         private readonly GoilRecordsDBEntities goilRecordsDBEntities = new GoilRecordsDBEntities();
-        //private Form1 _form1;
+        private Form1 _form1;
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        public LoginForm(Form1 form1 = null)
+        public LoginForm(Form1 form1)
         {
             InitializeComponent();
-            if (form1 != null) 
-            {
-                form1.Close();
-            }
+            _form1 = form1;
+            _form1.Close();
         }
 
         private void btnlogin_Click(object sender, EventArgs e)
