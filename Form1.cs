@@ -64,6 +64,7 @@ namespace GoilRecords
             if (user.Username != "admin")
             {
                 ibtnManagerUser.Visible = false;
+                ibtndefaultPass.Visible = false;
 
             }
         }
@@ -204,7 +205,7 @@ namespace GoilRecords
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            // remove form border whrn maximized 
+            // remove form border when maximized 
             if (WindowState == FormWindowState.Maximized)
             {
                 this.FormBorderStyle = FormBorderStyle.None;
@@ -217,12 +218,12 @@ namespace GoilRecords
 
         private void ibtnHome_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color1);
+            ActivateButton(sender, RGBColors.color6);
         }
 
         private void ibtnLoadRecords_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
+            ActivateButton(sender, RGBColors.color6);
             OpenChildForm(new LoadRecords(_user));
         }
 
@@ -231,8 +232,8 @@ namespace GoilRecords
 
         private void ibtnManagerUser_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color4);
-            OpenChildForm(new ManageUser());
+            ActivateButton(sender, RGBColors.color6);
+            OpenChildForm(new ManageUser(_user));
         }
 
         private void ibtnAddRecord_Click(object sender, EventArgs e)
@@ -243,14 +244,37 @@ namespace GoilRecords
 
         private void ibtnRemoveRecord_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color6);
             OpenChildForm(new RemoveRecords(_user));
         }
 
         private void ibtnChangePassword_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color3);
+            ActivateButton(sender, RGBColors.color6);
             OpenChildForm(new ChangePassword(_user, this));
+        }
+
+        private void ibtndefaultPass_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color6);
+            OpenChildForm(new ChangePassword(_user, this, true));
+        }
+
+        private void ibtnlogOut_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color6);
+            DialogResult result = MessageBox.Show($"Are you sure you want to logout",
+                   "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                LoginForm login = new LoginForm();
+                login.ShowDialog();
+                this.Close();
+                
+            }
+           
         }
     }
 }
