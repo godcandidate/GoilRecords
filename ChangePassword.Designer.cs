@@ -32,9 +32,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtuserid = new System.Windows.Forms.TextBox();
             this.txtconfirmpass = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblConfirmpass = new System.Windows.Forms.Label();
             this.txtpassword = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblPass = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnChangePassword
@@ -85,17 +85,17 @@
             this.txtconfirmpass.Size = new System.Drawing.Size(180, 27);
             this.txtconfirmpass.TabIndex = 56;
             // 
-            // label1
+            // lblConfirmpass
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(130, 179);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 17);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "Confirm Password";
+            this.lblConfirmpass.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblConfirmpass.AutoSize = true;
+            this.lblConfirmpass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmpass.ForeColor = System.Drawing.Color.White;
+            this.lblConfirmpass.Location = new System.Drawing.Point(130, 179);
+            this.lblConfirmpass.Name = "lblConfirmpass";
+            this.lblConfirmpass.Size = new System.Drawing.Size(125, 17);
+            this.lblConfirmpass.TabIndex = 55;
+            this.lblConfirmpass.Text = "Confirm Password";
             // 
             // txtpassword
             // 
@@ -106,17 +106,17 @@
             this.txtpassword.Size = new System.Drawing.Size(180, 27);
             this.txtpassword.TabIndex = 53;
             // 
-            // label4
+            // lblPass
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(129, 123);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
-            this.label4.TabIndex = 54;
-            this.label4.Text = "Password";
+            this.lblPass.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPass.AutoSize = true;
+            this.lblPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPass.ForeColor = System.Drawing.Color.White;
+            this.lblPass.Location = new System.Drawing.Point(129, 123);
+            this.lblPass.Name = "lblPass";
+            this.lblPass.Size = new System.Drawing.Size(69, 17);
+            this.lblPass.TabIndex = 54;
+            this.lblPass.Text = "Password";
             // 
             // ChangePassword
             // 
@@ -125,8 +125,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(567, 337);
             this.Controls.Add(this.txtconfirmpass);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblConfirmpass);
+            this.Controls.Add(this.lblPass);
             this.Controls.Add(this.txtpassword);
             this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.label2);
@@ -145,8 +145,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtuserid;
         private System.Windows.Forms.TextBox txtconfirmpass;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblConfirmpass;
         private System.Windows.Forms.TextBox txtpassword;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblPass;
     }
 }
