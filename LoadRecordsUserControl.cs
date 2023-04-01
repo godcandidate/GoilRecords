@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Xunit;
 
 namespace GoilRecords
 {
@@ -97,8 +98,6 @@ namespace GoilRecords
                     var searchby = cmbSearchBy.SelectedItem.ToString();
                     var keyword = txtname.Text;
                     
-
-                    var record = goilRecordsDBEntities.Records.FirstOrDefault(data => data.Product_type == keyword);
                     var query = goilRecordsDBEntities.Records.AsQueryable();
                     switch (searchby)
                     {
@@ -201,6 +200,87 @@ namespace GoilRecords
         private void btncloseDate_Click_1(object sender, EventArgs e)
         {
             pnlSearchDate.Visible = false;
+        }
+
+        private void cmbDateBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            switch (cmbDateBy.SelectedIndex)
+            {
+                
+                case 0:
+                    dateTimePicker1.CustomFormat = "yyyy";
+                    dateTimePicker1.ShowUpDown = true;
+                    break;
+                case 1:
+                    dateTimePicker1.CustomFormat = "MM/yyyy";
+                    dateTimePicker1.ShowUpDown = true;
+                    break;
+                case 2:
+                    dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+                    dateTimePicker1.ShowUpDown = false;
+                    break;
+                default:
+                    dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                    break;
+            }
+        }
+
+        private void searchdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtname.Text) || cmbDateBy.SelectedIndex == -1)
+                {
+                    MessageBox.Show($"Missing fields, enter all search fields", "Search Errors");
+                }
+                else
+                {
+                    var searchkey = cmbSearchBy.SelectedItem.ToString();
+                    var searchby = cmbDateBy.SelectedItem.ToString();
+                    var keyword = dateTimePicker1.Value.Date;
+
+                    var query = goilRecordsDBEntities.Records.AsQueryable();
+                    if (searchkey == "Discharge date")
+                        switch (searchby)
+                        {
+                            case "Year":
+                                // query database from record with searchby
+                                query = (from records in goilRecordsDBEntities.Records
+                                         where records.Discharge_date.Year == keyword.Year
+                                         select records);
+                                break;
+
+                            case "Month and Year":
+                                query = (from records in goilRecordsDBEntities.Records
+                                         where records.Discharge_date.Year == keyword.Year && records.Discharge_date.Month == keyword.Month
+                                         select records); ;
+                                break;
+                            case "Date, Month and Year":
+                                // query database from record with searchby
+                                query = (from records in goilRecordsDBEntities.Records
+                                         where records.Discharge_date == keyword
+                                         select records);
+                                break;
+                        }
+                    /* int numberOfRecords = query.Count();
+                     //var kom = query.ToList().
+                     if (query != null)
+                     {
+                         dgvrecords.DataSource = query.ToList();
+                         MessageBox.Show($"Search was successful,\n{numberOfRecords} record(s) found", "Search Results");
+                     }
+                     else
+                         MessageBox.Show($"No records match, check inputs ", "Search Results");*/
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }
