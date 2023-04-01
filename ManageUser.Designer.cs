@@ -105,6 +105,7 @@
             this.ibtnResetPassword.TabIndex = 40;
             this.ibtnResetPassword.Text = "Reset to default Password";
             this.ibtnResetPassword.UseVisualStyleBackColor = false;
+            this.ibtnResetPassword.Click += new System.EventHandler(this.ibtnResetPassword_Click);
             // 
             // ibtnupdateUser
             // 
