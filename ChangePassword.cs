@@ -15,6 +15,7 @@ namespace GoilRecords
         private readonly GoilRecordsDBEntities goilRecordsDBEntities = new GoilRecordsDBEntities();
         private Employee _user;
         private Form1 _form1;
+        private bool _pass;
 
         public ChangePassword()
         {
@@ -32,10 +33,32 @@ namespace GoilRecords
             InitializeComponent();
             _user = user;
             _form1 = form1;
+
             PopulateUserID();
            
         }
 
+        /// <summary>
+        /// Receiving the details of the logged in user
+        /// </summary>
+        /// <param name="user">the logged in user</param>
+        /// <param name="form1">The main form opened</param>
+        /// /// <param name="pass">A boolean for default password</param>
+        public ChangePassword(Employee user, Form1 form1, bool pass)
+        {
+            InitializeComponent();
+            _user = user;
+            _form1 = form1;
+            _pass = pass;
+            
+            lblPass.Text = "Default Password";
+            lblConfirmpass.Text = "Confirm Default pass ";
+            
+
+
+            PopulateUserID();
+
+        }
         /// <summary>
         /// Populate the userid textfield with the logged user's id
         /// </summary>
@@ -61,13 +84,25 @@ namespace GoilRecords
                     //if user exist
                     if (user != null) 
                     {
-                        user.Password = txtconfirmpass.Text;
+                        if (_pass)
+                        {
+                            user.DefaultPass = txtconfirmpass.Text;
+                            // saving changes to database
+                            goilRecordsDBEntities.SaveChanges();
+                            MessageBox.Show($"Default password changed successfully", "Change Password");
+                        }
+                        else
+                        {
+                            user.Password = txtconfirmpass.Text;
+                            // saving changes to database
+                            goilRecordsDBEntities.SaveChanges();
+                            MessageBox.Show($"{user.Username}'s password changed successfully", "Change Default Password");
+                            LoginForm login = new LoginForm(_form1);
+                            login.Show();
+                        }
+                        
 
-                        // saving changes to database
-                        goilRecordsDBEntities.SaveChanges();
-                        MessageBox.Show($"{user.Username}'s password changed successfully", "Change Password");
-                        LoginForm login = new LoginForm(_form1);
-                        login.Show();
+
                     }
                 }
                 else
