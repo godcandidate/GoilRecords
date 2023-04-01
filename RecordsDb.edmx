@@ -12,9 +12,10 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Person_Id" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Person_name" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Person_mobile" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Person_mobile" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DefaultPass" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Records">
           <Key>
@@ -63,9 +64,10 @@ warning 6035: The relationship 'FK_Records_Employees' has columns that are not p
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Person_Id" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Person_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Person_mobile" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Person_mobile" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Username" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultPass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Record">
           <Key>
@@ -101,6 +103,7 @@ warning 6035: The relationship 'FK_Records_Employees' has columns that are not p
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="GoilRecordsDBModel.Employee">
               <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="DefaultPass" ColumnName="DefaultPass" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Person_mobile" ColumnName="Person_mobile" />
