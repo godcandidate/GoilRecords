@@ -28,21 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.loadRecordsUserControl1 = new GoilRecords.LoadRecordsUserControl();
             this.ibtnRemoveUser = new FontAwesome.Sharp.IconButton();
             this.ibtnAddUser = new FontAwesome.Sharp.IconButton();
             this.ibtnResetPassword = new FontAwesome.Sharp.IconButton();
             this.ibtnupdateUser = new FontAwesome.Sharp.IconButton();
+            this.loadRecordsUserControl1 = new GoilRecords.LoadRecordsUserControl();
             this.SuspendLayout();
-            // 
-            // loadRecordsUserControl1
-            // 
-            this.loadRecordsUserControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.loadRecordsUserControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.loadRecordsUserControl1.Location = new System.Drawing.Point(-2, 0);
-            this.loadRecordsUserControl1.Name = "loadRecordsUserControl1";
-            this.loadRecordsUserControl1.Size = new System.Drawing.Size(870, 510);
-            this.loadRecordsUserControl1.TabIndex = 0;
             // 
             // ibtnRemoveUser
             // 
@@ -127,6 +118,15 @@
             this.ibtnupdateUser.Text = "Update User";
             this.ibtnupdateUser.UseVisualStyleBackColor = false;
             this.ibtnupdateUser.Click += new System.EventHandler(this.ibtnupdateUser_Click);
+            // 
+            // loadRecordsUserControl1
+            // 
+            this.loadRecordsUserControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.loadRecordsUserControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.loadRecordsUserControl1.Location = new System.Drawing.Point(-2, 0);
+            this.loadRecordsUserControl1.Name = "loadRecordsUserControl1";
+            this.loadRecordsUserControl1.Size = new System.Drawing.Size(870, 510);
+            this.loadRecordsUserControl1.TabIndex = 0;
             // 
             // ManageUser
             // 
