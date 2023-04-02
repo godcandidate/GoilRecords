@@ -111,6 +111,11 @@ namespace GoilRecords
                 {
                     MessageBox.Show($"Missing fields, enter all search fields", "Search Errors");
                 }
+                else if (cmbSearchBy.SelectedItem.ToString() == "Discharge date" || 
+                    cmbSearchBy.SelectedItem.ToString() == "Discharge time")
+                {
+                    MessageBox.Show($"Use date/time for {cmbSearchBy.SelectedItem.ToString()}", "Search Error");
+                }
                 else
                 {
                     var searchby = cmbSearchBy.SelectedItem.ToString();
@@ -130,11 +135,6 @@ namespace GoilRecords
                             query = (from records in goilRecordsDBEntities.Records
                                      where records.Loading_depot == keyword
                                      select records);
-                            break;
-
-                        case "Discharge date":
-                        case "Discharge time":
-                            success = false;
                             break;
 
                         case "Marker certificate":
@@ -174,10 +174,8 @@ namespace GoilRecords
                             break;
 
                     }
-                    if (success)
-                        SearchResults(query);
-                    else
-                        MessageBox.Show($"Use date/time {searchby}", "Search Error");
+                    SearchResults(query);
+                   
 
                 }
             }
@@ -191,7 +189,9 @@ namespace GoilRecords
         private void ibtnuseDate_Click(object sender, EventArgs e)
         {
             int wordindex = cmbSearchBy.SelectedIndex;
-            var searchby = cmbSearchBy.SelectedItem.ToString();
+            string searchby = "";
+            if (cmbSearchBy.SelectedIndex != -1)
+                searchby = cmbSearchBy.SelectedItem.ToString();
 
             switch (wordindex)
             {
@@ -210,7 +210,8 @@ namespace GoilRecords
             }
         }
 
-        private void btncloseDate_Click_1(object sender, EventArgs e)
+
+        private void btncloseDate_Click(object sender, EventArgs e)
         {
             pnlSearchDate.Visible = false;
         }
@@ -220,7 +221,7 @@ namespace GoilRecords
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             switch (cmbDateBy.SelectedIndex)
             {
-                
+
                 case 0:
                     dateTimePicker1.CustomFormat = "yyyy";
                     dateTimePicker1.ShowUpDown = true;
@@ -287,24 +288,24 @@ namespace GoilRecords
                                 success = false;
                                 break;
                         }
-                    
-                        else if (searchkey == "Discharge time")
-                        {
-                            switch (searchby)
-                            {
-                                case "Time":
-                                    query = (from records in goilRecordsDBEntities.Records
-                                             where records.Discharge_time == time
-                                             select records);
-                                    break;
 
-                                default:
-                                    MessageBox.Show($"{searchkey} field has only time type ", "Search Error");
-                                    success = false;
-                                    break;
-                            }
-                        
+                    else if (searchkey == "Discharge time")
+                    {
+                        switch (searchby)
+                        {
+                            case "Time":
+                                query = (from records in goilRecordsDBEntities.Records
+                                         where records.Discharge_time == time
+                                         select records);
+                                break;
+
+                            default:
+                                MessageBox.Show($"{searchkey} field has only time type ", "Search Error");
+                                success = false;
+                                break;
                         }
+
+                    }
                     if (success)
                         SearchResults(query);
                 }
@@ -314,6 +315,7 @@ namespace GoilRecords
 
                 throw;
             }
+
 
         }
     }
