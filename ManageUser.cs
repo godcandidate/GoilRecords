@@ -24,6 +24,8 @@ namespace GoilRecords
         {
             InitializeComponent();
             pass = user.DefaultPass;
+            loadRecordsUserControl1.pnlSearchRecords.Visible = false;
+            loadRecordsUserControl1.pnlSearchUser.Visible = true;
             populateGrid();
         }
 
@@ -122,5 +124,6 @@ namespace GoilRecords
 
             }
         }
+
     }
 }
