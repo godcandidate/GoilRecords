@@ -85,6 +85,23 @@ namespace GoilRecords
             }
         }
 
+        /// <summary>
+        /// Fills the dgvrecords with the search result
+        /// </summary>
+        /// <param name="query"> Search result</param>
+        private void SearchResults(IQueryable<Record> query)
+        {
+            int numberOfRecords = query.Count();
+            //var kom = query.ToList().
+            if (query != null)
+            {
+                dgvrecords.DataSource = query.ToList();
+                MessageBox.Show($"Search was successful,\n{numberOfRecords} record(s) found", "Search Results");
+            }
+            else
+                MessageBox.Show($"No records match, check inputs ", "Search Results");
+        }
+
         private void ibtnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -160,26 +177,12 @@ namespace GoilRecords
                             break;
 
                     }
-
-                    int numberOfRecords = query.Count();
-                    //var kom = query.ToList().
-                    if (query != null)
-                    {
-                        dgvrecords.DataSource = query.ToList();
-                        MessageBox.Show($"Search was successful,\n{numberOfRecords} record(s) found", "Search Results");
-                    }
-                    else
-                        MessageBox.Show($"No records match, check inputs ", "Search Results");
+                    SearchResults(query);
                 }
-                
-               
-
-
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("An error occured, please try again", "Search Error");
             }
             
         }
@@ -230,7 +233,7 @@ namespace GoilRecords
         {
             try
             {
-                if (string.IsNullOrEmpty(txtname.Text) || cmbDateBy.SelectedIndex == -1)
+                if (string.IsNullOrEmpty(dateTimePicker1.Value.ToString()) || (cmbDateBy.SelectedIndex == -1))
                 {
                     MessageBox.Show($"Missing fields, enter all search fields", "Search Errors");
                 }
@@ -263,15 +266,7 @@ namespace GoilRecords
                                          select records);
                                 break;
                         }
-                    /* int numberOfRecords = query.Count();
-                     //var kom = query.ToList().
-                     if (query != null)
-                     {
-                         dgvrecords.DataSource = query.ToList();
-                         MessageBox.Show($"Search was successful,\n{numberOfRecords} record(s) found", "Search Results");
-                     }
-                     else
-                         MessageBox.Show($"No records match, check inputs ", "Search Results");*/
+                    SearchResults(query);
 
                 }
             }
