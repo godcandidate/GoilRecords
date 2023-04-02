@@ -16,6 +16,7 @@ namespace GoilRecords
     public partial class LoadRecordsUserControl : UserControl
     {
         private readonly GoilRecordsDBEntities goilRecordsDBEntities = new GoilRecordsDBEntities();
+        private bool success = true;
         public LoadRecordsUserControl()
         {
             InitializeComponent();
@@ -132,12 +133,8 @@ namespace GoilRecords
                             break;
 
                         case "Discharge date":
-                            query = (from records in goilRecordsDBEntities.Records
-                                     where records.Loading_depot == keyword
-                                     select records);
-                            break;
-
                         case "Discharge time":
+                            success = false;
                             break;
 
                         case "Marker certificate":
@@ -177,7 +174,11 @@ namespace GoilRecords
                             break;
 
                     }
-                    SearchResults(query);
+                    if (success)
+                        SearchResults(query);
+                    else
+                        MessageBox.Show($"Use date/time {searchby}", "Search Error");
+
                 }
             }
             catch (Exception)
@@ -190,8 +191,9 @@ namespace GoilRecords
         private void ibtnuseDate_Click(object sender, EventArgs e)
         {
             int wordindex = cmbSearchBy.SelectedIndex;
+            var searchby = cmbSearchBy.SelectedItem.ToString();
 
-            switch(wordindex)
+            switch (wordindex)
             {
                 case -1:
                     MessageBox.Show("Select a searchby ", "Search Error");
@@ -203,7 +205,7 @@ namespace GoilRecords
                     break;
 
                 default:
-                    MessageBox.Show("Searchby selected is not date/time type ", "Search Error");
+                    MessageBox.Show($"{searchby} is not date/time type ", "Search Error");
                     break;
             }
         }
@@ -255,8 +257,8 @@ namespace GoilRecords
                     var searchkey = cmbSearchBy.SelectedItem.ToString();
                     var searchby = cmbDateBy.SelectedItem.ToString();
                     var keyword = dateTimePicker1.Value.Date;
+                    TimeSpan time = dateTimePicker1.Value.TimeOfDay;
 
-                    bool success = true;
                     var query = goilRecordsDBEntities.Records.AsQueryable();
                     if (searchkey == "Discharge date")
                         switch (searchby)
@@ -285,13 +287,14 @@ namespace GoilRecords
                                 success = false;
                                 break;
                         }
-                        else if (searchkey == "Discharge_time")
+                    
+                        else if (searchkey == "Discharge time")
                         {
                             switch (searchby)
                             {
                                 case "Time":
                                     query = (from records in goilRecordsDBEntities.Records
-                                             where records.Discharge_time == keyword.TimeOfDay
+                                             where records.Discharge_time == time
                                              select records);
                                     break;
 
