@@ -191,13 +191,21 @@ namespace GoilRecords
         {
             int wordindex = cmbSearchBy.SelectedIndex;
 
-            if (wordindex == 2 || wordindex == 3)
-                pnlSearchDate.Visible = true;
-            else if (wordindex == -1)
-                MessageBox.Show("Select a searchby ", "Search Error");
-            else
-                MessageBox.Show("Searchby selected is not date/time type ", "Search Error");
+            switch(wordindex)
+            {
+                case -1:
+                    MessageBox.Show("Select a searchby ", "Search Error");
+                    break;
+                    // case 2 or 3
+                case 2:
+                case 3:
+                    pnlSearchDate.Visible = true;
+                    break;
 
+                default:
+                    MessageBox.Show("Searchby selected is not date/time type ", "Search Error");
+                    break;
+            }
         }
 
         private void btncloseDate_Click_1(object sender, EventArgs e)
@@ -223,6 +231,11 @@ namespace GoilRecords
                     dateTimePicker1.CustomFormat = "dd/MM/yyyy";
                     dateTimePicker1.ShowUpDown = false;
                     break;
+                case 3:
+                    // change the datetimepicker to timepicker
+                    dateTimePicker1.Format = DateTimePickerFormat.Time;
+                    dateTimePicker1.ShowUpDown = true;
+                    break;
                 default:
                     dateTimePicker1.Format = DateTimePickerFormat.Custom;
                     break;
@@ -243,6 +256,7 @@ namespace GoilRecords
                     var searchby = cmbDateBy.SelectedItem.ToString();
                     var keyword = dateTimePicker1.Value.Date;
 
+                    bool success = true;
                     var query = goilRecordsDBEntities.Records.AsQueryable();
                     if (searchkey == "Discharge date")
                         switch (searchby)
@@ -259,14 +273,37 @@ namespace GoilRecords
                                          where records.Discharge_date.Year == keyword.Year && records.Discharge_date.Month == keyword.Month
                                          select records); ;
                                 break;
+
                             case "Date, Month and Year":
-                                // query database from record with searchby
                                 query = (from records in goilRecordsDBEntities.Records
                                          where records.Discharge_date == keyword
                                          select records);
                                 break;
+
+                            default:
+                                MessageBox.Show($"{searchkey} field has no time type ", "Search Error");
+                                success = false;
+                                break;
                         }
-                    SearchResults(query);
+                        else if (searchkey == "Discharge_time")
+                        {
+                            switch (searchby)
+                            {
+                                case "Time":
+                                    query = (from records in goilRecordsDBEntities.Records
+                                             where records.Discharge_time == keyword.TimeOfDay
+                                             select records);
+                                    break;
+
+                                default:
+                                    MessageBox.Show($"{searchkey} field has only time type ", "Search Error");
+                                    success = false;
+                                    break;
+                            }
+                        
+                        }
+                    if (success)
+                        SearchResults(query);
 
                 }
             }

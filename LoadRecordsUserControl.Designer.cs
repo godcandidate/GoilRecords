@@ -277,7 +277,8 @@
             this.cmbDateBy.Items.AddRange(new object[] {
             "Year",
             "Month and Year",
-            "Date, Month and Year"});
+            "Date, Month and Year",
+            "Time"});
             this.cmbDateBy.Location = new System.Drawing.Point(111, 6);
             this.cmbDateBy.Name = "cmbDateBy";
             this.cmbDateBy.Size = new System.Drawing.Size(186, 25);
