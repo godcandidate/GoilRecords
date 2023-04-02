@@ -285,7 +285,6 @@ namespace GoilRecords
                                 success = false;
                                 break;
                         }
-
                         else if (searchkey == "Discharge_time")
                         {
                             switch (searchby)
@@ -305,7 +304,6 @@ namespace GoilRecords
                         }
                     if (success)
                         SearchResults(query);
-
                 }
             }
             catch (Exception)
