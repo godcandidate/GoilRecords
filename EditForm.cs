@@ -73,10 +73,8 @@ namespace GoilRecords
                 var discharge_date = addRecordUserControl1.dtpDischarge_date.Value.Date;
                 var discharge_time = addRecordUserControl1.dtpDischargeTime.Value.TimeOfDay;
                 var densityat15 = addRecordUserControl1.txtDensity15.Text;
-                var productTemp = addRecordUserControl1.txtProductTemperature.Text;
-                var productDensity = addRecordUserControl1.txtDensity15.Text;
                 var Quantitydischarged = addRecordUserControl1.txtQuantityDischarged.Text;
-                var observed_Temp = addRecordUserControl1.txtProductTemperature.Text;
+                var observed_Temp = addRecordUserControl1.txtTemperature_observed.Text;
                 var observedDensity = addRecordUserControl1.txtDensity_observed.Text;
                 var markerCert = addRecordUserControl1.txtMarkerCert.Text;
                 var invoiceNumber = addRecordUserControl1.txtInvoiceNo.Text;
@@ -98,8 +96,7 @@ namespace GoilRecords
                 record.Discharge_date = discharge_date;
                 record.Discharge_time = discharge_time;
                 record.Density_at15 = Convert.ToDouble(densityat15);
-                record.Product_temperature = Convert.ToDouble(productTemp);
-                record.Quantity_discharged = Convert.ToDouble(productDensity);
+                record.Quantity_discharged = Convert.ToDouble(Quantitydischarged);
                 record.Density_observed = Convert.ToDouble(observedDensity);
                 record.Temperature_observed = Convert.ToDouble(observed_Temp);
                 record.Marker_certificate = markerCert;
