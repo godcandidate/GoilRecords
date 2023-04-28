@@ -17,6 +17,7 @@ namespace GoilRecords
         public ManageUser()
         {
             InitializeComponent();
+            loadRecordsUserControl1.ibtnRefresh.Visible = false;
             populateGrid();
         }
 
