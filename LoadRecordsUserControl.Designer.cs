@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvrecords = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,10 +49,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pnlSearchUser = new System.Windows.Forms.Panel();
             this.txtusname = new System.Windows.Forms.TextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.ibtnSearchUser = new FontAwesome.Sharp.IconButton();
             this.cmbUserBy = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.ibtnrefreshUser = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvrecords)).BeginInit();
             this.pnlSearchRecords.SuspendLayout();
             this.pnlSearchDate.SuspendLayout();
@@ -61,26 +62,26 @@
             // 
             // dgvrecords
             // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.dgvrecords.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvrecords.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvrecords.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvrecords.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvrecords.ColumnHeadersHeight = 30;
             this.dgvrecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvrecords.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvrecords.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvrecords.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvrecords.Location = new System.Drawing.Point(3, 111);
             this.dgvrecords.Name = "dgvrecords";
@@ -157,6 +158,7 @@
             this.ibtnRefresh.TabIndex = 31;
             this.ibtnRefresh.Text = "Refresh";
             this.ibtnRefresh.UseVisualStyleBackColor = false;
+            this.ibtnRefresh.Click += new System.EventHandler(this.ibtnRefresh_Click);
             // 
             // ibtnSearch
             // 
@@ -333,8 +335,9 @@
             // 
             // pnlSearchUser
             // 
+            this.pnlSearchUser.Controls.Add(this.ibtnrefreshUser);
             this.pnlSearchUser.Controls.Add(this.txtusname);
-            this.pnlSearchUser.Controls.Add(this.iconButton1);
+            this.pnlSearchUser.Controls.Add(this.ibtnSearchUser);
             this.pnlSearchUser.Controls.Add(this.cmbUserBy);
             this.pnlSearchUser.Controls.Add(this.label4);
             this.pnlSearchUser.Controls.Add(this.label5);
@@ -352,24 +355,25 @@
             this.txtusname.Size = new System.Drawing.Size(196, 23);
             this.txtusname.TabIndex = 37;
             // 
-            // iconButton1
+            // ibtnSearchUser
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.Red;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 35;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(109, 72);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(66, 26);
-            this.iconButton1.TabIndex = 35;
-            this.iconButton1.Text = "Search";
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.ibtnSearchUser.BackColor = System.Drawing.Color.Red;
+            this.ibtnSearchUser.FlatAppearance.BorderSize = 0;
+            this.ibtnSearchUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnSearchUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ibtnSearchUser.ForeColor = System.Drawing.Color.White;
+            this.ibtnSearchUser.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ibtnSearchUser.IconColor = System.Drawing.Color.Gainsboro;
+            this.ibtnSearchUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnSearchUser.IconSize = 35;
+            this.ibtnSearchUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ibtnSearchUser.Location = new System.Drawing.Point(109, 72);
+            this.ibtnSearchUser.Name = "ibtnSearchUser";
+            this.ibtnSearchUser.Size = new System.Drawing.Size(66, 26);
+            this.ibtnSearchUser.TabIndex = 35;
+            this.ibtnSearchUser.Text = "Search";
+            this.ibtnSearchUser.UseVisualStyleBackColor = false;
+            this.ibtnSearchUser.Click += new System.EventHandler(this.ibtnSearchUser_Click);
             // 
             // cmbUserBy
             // 
@@ -406,6 +410,25 @@
             this.label5.TabIndex = 32;
             this.label5.Text = "Name";
             // 
+            // ibtnrefreshUser
+            // 
+            this.ibtnrefreshUser.BackColor = System.Drawing.Color.Blue;
+            this.ibtnrefreshUser.FlatAppearance.BorderSize = 0;
+            this.ibtnrefreshUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnrefreshUser.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ibtnrefreshUser.ForeColor = System.Drawing.Color.White;
+            this.ibtnrefreshUser.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ibtnrefreshUser.IconColor = System.Drawing.Color.Gainsboro;
+            this.ibtnrefreshUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnrefreshUser.IconSize = 35;
+            this.ibtnrefreshUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ibtnrefreshUser.Location = new System.Drawing.Point(239, 72);
+            this.ibtnrefreshUser.Name = "ibtnrefreshUser";
+            this.ibtnrefreshUser.Size = new System.Drawing.Size(66, 26);
+            this.ibtnrefreshUser.TabIndex = 38;
+            this.ibtnrefreshUser.Text = "Refresh";
+            this.ibtnrefreshUser.UseVisualStyleBackColor = false;
+            // 
             // LoadRecordsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -434,7 +457,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtname;
-        private FontAwesome.Sharp.IconButton ibtnRefresh;
         public Guna.UI2.WinForms.Guna2DataGridView dgvrecords;
         public FontAwesome.Sharp.IconButton ibtnSearch;
         private FontAwesome.Sharp.IconButton ibtnuseDate;
@@ -448,10 +470,12 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Panel pnlSearchRecords;
         public System.Windows.Forms.TextBox txtusname;
-        public FontAwesome.Sharp.IconButton iconButton1;
+        public FontAwesome.Sharp.IconButton ibtnSearchUser;
         public System.Windows.Forms.ComboBox cmbUserBy;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.Panel pnlSearchUser;
+        public FontAwesome.Sharp.IconButton ibtnrefreshUser;
+        public FontAwesome.Sharp.IconButton ibtnRefresh;
     }
 }
