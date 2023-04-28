@@ -16,6 +16,7 @@ namespace GoilRecords
     public partial class LoadRecordsUserControl : UserControl
     {
         private readonly GoilRecordsDBEntities goilRecordsDBEntities = new GoilRecordsDBEntities();
+        private Employee _user;
         private bool success = true;
         public LoadRecordsUserControl()
         {
@@ -27,6 +28,7 @@ namespace GoilRecords
         /// </summary>
         public void populateGridWithUserRecords(Employee user)
         {
+            _user = user;
             if (user.Username != "admin")
             {
                 var query = from records in goilRecordsDBEntities.Records
@@ -261,6 +263,7 @@ namespace GoilRecords
                     TimeSpan time = dateTimePicker1.Value.TimeOfDay;
 
                     var query = goilRecordsDBEntities.Records.AsQueryable();
+
                     if (searchkey == "Discharge date")
                         switch (searchby)
                         {
@@ -274,7 +277,7 @@ namespace GoilRecords
                             case "Month and Year":
                                 query = (from records in goilRecordsDBEntities.Records
                                          where records.Discharge_date.Year == keyword.Year && records.Discharge_date.Month == keyword.Month
-                                         select records); ;
+                                         select records);
                                 break;
 
                             case "Date, Month and Year":
@@ -317,6 +320,65 @@ namespace GoilRecords
             }
 
 
+        }
+
+        private void ibtnSearchUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtusname.Text) || cmbUserBy.SelectedIndex == -1)
+                {
+                    MessageBox.Show($"Missing fields, enter all search fields", "Search Errors");
+                }
+                else
+                {
+                    var searchby = cmbUserBy.SelectedItem.ToString();
+                    var keyword = txtusname.Text;
+
+                    var query = goilRecordsDBEntities.Employees.AsQueryable();
+                    switch (searchby)
+                    {
+                        case "Person ID":
+                            // query database from employee with searchby
+                            query = (from users in goilRecordsDBEntities.Employees
+                                     where users.Person_Id == keyword
+                                     select users);
+                            break;
+
+                        case "Person name":
+                            query = (from users in goilRecordsDBEntities.Employees
+                                     where users.Person_name == keyword
+                                     select users);
+                            break;
+
+                        case "Username":
+                            query = (from users in goilRecordsDBEntities.Employees
+                                     where users.Username == keyword
+                                     select users);
+                            break;
+                    }
+                    int numberOfUsers = query.Count();
+                    //var kom = query.ToList().
+                    if (query != null)
+                    {
+                        dgvrecords.DataSource = query.ToList();
+                        MessageBox.Show($"Search was successful,\n{numberOfUsers} user(s) found", "Search Results");
+                    }
+                    else
+                        MessageBox.Show($"No records match, check inputs ", "Search Results");
+
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An error occured, please try again", "Search Error");
+            }
+        }
+
+        private void ibtnRefresh_Click(object sender, EventArgs e)
+        {
+            populateGridWithUserRecords(_user);
         }
     }
 }
