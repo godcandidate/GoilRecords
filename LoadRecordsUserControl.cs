@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Xml.Linq;
 using Xunit;
 
@@ -105,6 +106,135 @@ namespace GoilRecords
                 MessageBox.Show($"No records match, check inputs ", "Search Results");
         }
 
+        /// <summary>
+        /// Searches the database based on admin or user
+        /// </summary>
+        /// <param name="searchby">the category to search by</param>
+        /// <param name="keyword">the keyword to search</param>
+        /// <returns>
+        /// The search results 
+        /// </returns>
+        private IQueryable<Record> SearchByRole(string searchby, string keyword)
+        {
+            var query = goilRecordsDBEntities.Records.AsQueryable();
+
+            // Returns all results of search results
+            if (_user.Username == "admin")
+            {
+                switch (searchby)
+                {
+                    case "Product Type":
+                        // query database from record with searchby
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Product_type == keyword
+                                 select records);
+                        break;
+
+                    case "Loading Depot":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Loading_depot == keyword
+                                 select records);
+                        break;
+
+                    case "Marker certificate":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Marker_certificate == keyword
+                                 select records);
+                        break;
+
+                    case "Invoice number":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Invoice_number == keyword
+                                 select records);
+                        break;
+
+                    case "BRV number":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.BRV_number == keyword
+                                 select records);
+                        break;
+
+                    case "Compartment number":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Compartment_number == keyword
+                                 select records);
+                        break;
+
+                    case "Contains_water":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Contains_water == keyword
+                                 select records);
+                        break;
+
+                    case "Driver's name":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Driver_name == keyword
+                                 select records);
+                        break;
+
+                }
+            }
+
+            //filters search results by user id
+            else
+            {
+                switch (searchby)
+                {
+                    case "Product Type":
+                        // query database from record with searchby
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Product_type == keyword && records.UserID == _user.Person_Id
+                                 select records);
+                        break;
+
+                    case "Loading Depot":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Loading_depot == keyword && records.UserID == _user.Person_Id
+                                 select records);
+                        break;
+
+                    case "Marker certificate":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Marker_certificate == keyword && records.UserID == _user.Person_Id
+                                 select records);
+                        break;
+
+                    case "Invoice number":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Invoice_number == keyword && records.UserID == _user.Person_Id
+                                 select records);
+                        break;
+
+                    case "BRV number":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.BRV_number == keyword && records.UserID == _user.Person_Id
+                                 select records);
+                        break;
+
+                    case "Compartment number":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Compartment_number == keyword && records.UserID == _user.Person_Id
+                                 select records);
+                        break;
+
+                    case "Contains_water":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Contains_water == keyword && records.UserID == _user.Person_Id
+                                 select records);
+                        break;
+
+                    case "Driver's name":
+                        query = (from records in goilRecordsDBEntities.Records
+                                 where records.Driver_name == keyword && records.UserID == _user.Person_Id
+                                 select records);
+                        break;
+
+                }
+            }
+
+            return query;
+        }
+
         private void ibtnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -122,60 +252,8 @@ namespace GoilRecords
                 {
                     var searchby = cmbSearchBy.SelectedItem.ToString();
                     var keyword = txtname.Text;
-                    
-                    var query = goilRecordsDBEntities.Records.AsQueryable();
-                    switch (searchby)
-                    {
-                        case "Product Type":
-                            // query database from record with searchby
-                            query = (from records in goilRecordsDBEntities.Records
-                                     where records.Product_type == keyword
-                                     select records);
-                            break;
 
-                        case "Loading Depot":
-                            query = (from records in goilRecordsDBEntities.Records
-                                     where records.Loading_depot == keyword
-                                     select records);
-                            break;
-
-                        case "Marker certificate":
-                            query = (from records in goilRecordsDBEntities.Records
-                                     where records.Marker_certificate == keyword
-                                     select records);
-                            break;
-
-                        case "Invoice number":
-                            query = (from records in goilRecordsDBEntities.Records
-                                     where records.Invoice_number == keyword
-                                     select records);
-                            break;
-
-                        case "BRV number":
-                            query = (from records in goilRecordsDBEntities.Records
-                                     where records.BRV_number == keyword
-                                     select records);
-                            break;
-
-                        case "Compartment number":
-                            query = (from records in goilRecordsDBEntities.Records
-                                     where records.Compartment_number == keyword
-                                     select records);
-                            break;
-
-                        case "Contains_water":
-                            query = (from records in goilRecordsDBEntities.Records
-                                     where records.Contains_water == keyword
-                                     select records);
-                            break;
-
-                        case "Driver's name":
-                            query = (from records in goilRecordsDBEntities.Records
-                                     where records.Driver_name == keyword
-                                     select records);
-                            break;
-
-                    }
+                    var query = SearchByRole(searchby, keyword);
                     SearchResults(query);
                    
 
