@@ -38,7 +38,12 @@ namespace GoilRecords
             _isEditMode = true;
             this.Text = "Edit User";
             btnAddUser.Text = "Save changes";
+
+            // userID and admin username cannot be changed
             personInfoUserControl1.txtPersonID.Enabled = false;
+            if (user.Username == "admin")
+                personInfoUserControl1.txtUsername.Enabled = false;
+
             PopulateFields(user);
         }
 
