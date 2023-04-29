@@ -46,24 +46,24 @@ namespace GoilRecords
 
                     // creating fields variables
                     var productType = addRecordUserControl11.cmbProduct_type.SelectedItem.ToString();
-                    var loadingdepot = addRecordUserControl11.txtLoadingDepot.Text;
+                    var loadingdepot = addRecordUserControl11.txtLoadingDepot.Text.TrimEnd();
                     var discharge_date = addRecordUserControl11.dtpDischarge_date.Value.Date;
                     var discharge_time = addRecordUserControl11.dtpDischargeTime.Value.TimeOfDay;
-                    var densityat15 = addRecordUserControl11.txtDensity15.Text;
-                    var productTemp = addRecordUserControl11.txtProductTemperature.Text;
-                    var productDensity = addRecordUserControl11.txtDensity15.Text;
-                    var Quantitydischarged = addRecordUserControl11.txtQuantityDischarged.Text;
-                    var observed_Temp = addRecordUserControl11.txtTemperature_observed.Text;
-                    var observedDensity = addRecordUserControl11.txtDensity_observed.Text;
-                    var markerCert = addRecordUserControl11.txtMarkerCert.Text;
-                    var invoiceNumber = addRecordUserControl11.txtInvoiceNo.Text;
-                    var BRVnumber = addRecordUserControl11.txtBRV_No.Text;
-                    var sulphurAmount = addRecordUserControl11.txtSulphurContent.Text;
-                    var compartmentNumber = addRecordUserControl11.txtCompartmentNo.Text;
+                    var densityat15 = addRecordUserControl11.txtDensity15.Text.TrimEnd();
+                    var productTemp = addRecordUserControl11.txtProductTemperature.Text.TrimEnd();
+                    var productDensity = addRecordUserControl11.txtDensity15.Text.TrimEnd();
+                    var Quantitydischarged = addRecordUserControl11.txtQuantityDischarged.Text.TrimEnd();
+                    var observed_Temp = addRecordUserControl11.txtTemperature_observed.Text.TrimEnd();
+                    var observedDensity = addRecordUserControl11.txtDensity_observed.Text.TrimEnd();
+                    var markerCert = addRecordUserControl11.txtMarkerCert.Text.TrimEnd();
+                    var invoiceNumber = addRecordUserControl11.txtInvoiceNo.Text.TrimEnd();
+                    var BRVnumber = addRecordUserControl11.txtBRV_No.Text.TrimEnd();
+                    var sulphurAmount = addRecordUserControl11.txtSulphurContent.Text.TrimEnd();
+                    var compartmentNumber = addRecordUserControl11.txtCompartmentNo.Text.TrimEnd();
                     var containsWater = addRecordUserControl11.cmbContainsWater.SelectedItem.ToString();
-                    var driverName = addRecordUserControl11.txtDriverName.Text;
-                    var density15_observed = addRecordUserControl11.txtDensity15_observed.Text;
-                    var densitydiff = addRecordUserControl11.txtDensityDiff.Text;
+                    var driverName = addRecordUserControl11.txtDriverName.Text.TrimEnd();
+                    var density15_observed = addRecordUserControl11.txtDensity15_observed.Text.TrimEnd();
+                    var densitydiff = addRecordUserControl11.txtDensityDiff.Text.TrimEnd();
 
 
                     
