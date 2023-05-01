@@ -83,7 +83,6 @@
             this.addRecordUserControl11.Name = "addRecordUserControl11";
             this.addRecordUserControl11.Size = new System.Drawing.Size(853, 464);
             this.addRecordUserControl11.TabIndex = 35;
-            this.addRecordUserControl11.Load += new System.EventHandler(this.addRecordUserControl11_Load);
             // 
             // AddRecords
             // 
