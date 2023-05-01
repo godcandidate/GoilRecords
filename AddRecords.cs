@@ -110,11 +110,6 @@ namespace GoilRecords
             }
         }
 
-        private void addRecordUserControl11_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ibtnClear_Click(object sender, EventArgs e)
         {
             addRecordUserControl11.ClearFields();
