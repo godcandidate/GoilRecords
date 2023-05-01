@@ -288,6 +288,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoadRecords.resx">
       <DependentUpon>LoadRecords.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadRecordsUserControl.resx">
       <DependentUpon>LoadRecordsUserControl.cs</DependentUpon>
