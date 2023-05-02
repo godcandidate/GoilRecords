@@ -81,30 +81,29 @@ namespace GoilRecords
             int endX = e.MarginBounds.Right;
             int y = 80;
 
-            e.Graphics.DrawString("Goil Record System", new Font("Georgia", 12), Brushes.Red, new Point(100, 10));
-            e.Graphics.DrawString("Printed by " + _user.Username, new Font("Century Gothic", 10), Brushes.Red, new Point(10, 40));
-            e.Graphics.DrawString("Printed on " + DateTime.Now, new Font("Century Gothic", 10), Brushes.Red, new Point(10, 60));
+            e.Graphics.DrawString("Goil Record System", new Font("Georgia", 12), Brushes.Red, new Point(200, 10));
+            e.Graphics.DrawString("Printed by " + _user.Username, new Font("Century Gothic", 10), Brushes.Black, new Point(10, 40));
+            e.Graphics.DrawString("Printed on " + DateTime.Now, new Font("Century Gothic", 10), Brushes.Black, new Point(10, 60));
 
             Pen separatorPen = new Pen(Color.Black, 2);
             g.DrawLine(separatorPen, startX, y, endX, y);
             int count = 100;
 
             //looping through the data to print each 
-            for (int i=0; i<=17; i++)
+            for (int i=0; i<=19; i++)
             {
                 e.Graphics.DrawString(loadRecordsUserControl1.dgvrecords.Columns[i].HeaderText + "  : " +
                     loadRecordsUserControl1.dgvrecords.SelectedRows[0].Cells[i].Value.ToString(), 
-                    new Font("Century Gothic", 12), Brushes.Black, new Point(40, count));
-                count += 20;
+                    new Font("Century Gothic", 10), Brushes.Black, new Point(40, count));
+                count += 40;
             }
         }
 
         private void ibtnprint_Click(object sender, EventArgs e)
         {
             printPreviewDialog1.Document = printDocument1;
-            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 500);
+            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 600, 700);
             printPreviewDialog1.ShowDialog();
-
         }
     }
 }
