@@ -12,7 +12,7 @@ namespace GoilRecords
 {
     public partial class AddRecordUserControl : UserControl
     {
-  
+        
         public AddRecordUserControl()
         {
             InitializeComponent();
@@ -59,6 +59,44 @@ namespace GoilRecords
             txtDensityDiff.Clear();
         }
 
-      
+        private void ibtnCalculateDensity_Click(object sender, EventArgs e)
+        {
+            string density_observed = txtDensity_observed.Text.TrimEnd();
+            string temp_observed = txtTemperature_observed.Text.TrimEnd();
+            double k = 1;
+
+            if (cmbProduct_type.SelectedIndex != -1)
+            {
+                int index = cmbProduct_type.SelectedIndex;
+
+                // constant varies for product types
+                switch (index)
+                {
+                    case 1:
+                        k = 0.9;
+                        break;
+                    case 2:
+                    case 3:
+                        k = 0.7;
+                        break;
+                }
+                // checks if Density observed and Temperature observed have double values 
+                if (Double.TryParse(density_observed, out double densOb) && Double.TryParse(temp_observed, out double tempOb))
+                {
+                    txtDensity15_observed.Text = (densOb + k * (tempOb - 15)).ToString();
+                    txtDensityDiff.Text = (densOb + k * (tempOb - 15) - densOb).ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Values in Density and Temperature observed must be numbers", "Calculation Error");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Error, select a product type", "Calculation Error");
+            }
+
+        }
     }
 }
