@@ -51,7 +51,7 @@
             this.ibtnprint.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnprint.IconSize = 35;
             this.ibtnprint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnprint.Location = new System.Drawing.Point(239, 517);
+            this.ibtnprint.Location = new System.Drawing.Point(331, 517);
             this.ibtnprint.Name = "ibtnprint";
             this.ibtnprint.Size = new System.Drawing.Size(158, 29);
             this.ibtnprint.TabIndex = 34;
@@ -78,6 +78,7 @@
             this.iconButton1.TabIndex = 36;
             this.iconButton1.Text = "Print All";
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Visible = false;
             // 
             // ibtnView
             // 
