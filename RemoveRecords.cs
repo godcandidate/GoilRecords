@@ -24,6 +24,7 @@ namespace GoilRecords
 
         public RemoveRecords(Employee user)
         {
+            _user = user;
             InitializeComponent();
             PopulateGrid(user);
 
