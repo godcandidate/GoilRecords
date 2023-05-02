@@ -350,6 +350,7 @@
             this.ibtnCalculateDensity.TabIndex = 15;
             this.ibtnCalculateDensity.Text = "Calucluate Density";
             this.ibtnCalculateDensity.UseVisualStyleBackColor = false;
+            this.ibtnCalculateDensity.Click += new System.EventHandler(this.ibtnCalculateDensity_Click);
             // 
             // label16
             // 
