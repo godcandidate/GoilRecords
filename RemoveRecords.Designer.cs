@@ -47,12 +47,13 @@
             this.ibtnDeleteAll.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnDeleteAll.IconSize = 35;
             this.ibtnDeleteAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnDeleteAll.Location = new System.Drawing.Point(605, 517);
+            this.ibtnDeleteAll.Location = new System.Drawing.Point(385, 517);
             this.ibtnDeleteAll.Name = "ibtnDeleteAll";
             this.ibtnDeleteAll.Size = new System.Drawing.Size(158, 29);
             this.ibtnDeleteAll.TabIndex = 38;
             this.ibtnDeleteAll.Text = "Delete All";
             this.ibtnDeleteAll.UseVisualStyleBackColor = false;
+            this.ibtnDeleteAll.Visible = false;
             // 
             // ibtnDeleteRecord
             // 
@@ -67,7 +68,7 @@
             this.ibtnDeleteRecord.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnDeleteRecord.IconSize = 35;
             this.ibtnDeleteRecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnDeleteRecord.Location = new System.Drawing.Point(355, 517);
+            this.ibtnDeleteRecord.Location = new System.Drawing.Point(623, 517);
             this.ibtnDeleteRecord.Name = "ibtnDeleteRecord";
             this.ibtnDeleteRecord.Size = new System.Drawing.Size(158, 29);
             this.ibtnDeleteRecord.TabIndex = 37;
