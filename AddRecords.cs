@@ -99,14 +99,8 @@ namespace GoilRecords
                 }
                 catch (Exception)
                 {
-
                     MessageBox.Show("Error");
                 }
- 
-                
-
-               
-
             }
         }
 
