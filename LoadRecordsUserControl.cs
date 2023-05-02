@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.ReportAppServer.DataDefModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,6 +55,7 @@ namespace GoilRecords
                                 records.Compartment_number,
                                 records.Contains_water,
                                 records.Driver_name,
+                                records.Density_at15Observed,
                                 records.Density_difference
                             };
                 dgvrecords.DataSource = query.ToList();
@@ -81,6 +83,7 @@ namespace GoilRecords
                   data.Compartment_number,
                   data.Contains_water,
                   data.Driver_name,
+                  data.Density_at15Observed,
                   data.Density_difference
               }
               ).ToList();
