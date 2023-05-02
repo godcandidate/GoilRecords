@@ -62,9 +62,10 @@ namespace GoilRecords
                     var compartmentNumber = addRecordUserControl11.txtCompartmentNo.Text.TrimEnd();
                     var containsWater = addRecordUserControl11.cmbContainsWater.SelectedItem.ToString();
                     var driverName = addRecordUserControl11.txtDriverName.Text.TrimEnd();
+                
                     var density15_observed = addRecordUserControl11.txtDensity15_observed.Text.TrimEnd();
                     var densitydiff = addRecordUserControl11.txtDensityDiff.Text.TrimEnd();
-
+                    
 
                     
                     // inserting into the database
@@ -87,6 +88,7 @@ namespace GoilRecords
                     record.Compartment_number = compartmentNumber;
                     record.Contains_water = containsWater;
                     record.Driver_name = driverName;
+                    record.Density_at15Observed = Convert.ToDouble(density15_observed);
                     record.Density_difference = Convert.ToDouble(densitydiff);
 
                     // saving changes to database
