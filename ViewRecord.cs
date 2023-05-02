@@ -55,7 +55,7 @@ namespace GoilRecords
                 addRecordUserControl1.txtCompartmentNo.Text = Convert.ToString(record.Compartment_number);
                 addRecordUserControl1.cmbContainsWater.Text = record.Contains_water;
                 addRecordUserControl1.txtDriverName.Text = record.Driver_name;
-                addRecordUserControl1.txtDensity15_observed.Text = Convert.ToString(record.Density_observed);
+                addRecordUserControl1.txtDensity15_observed.Text = Convert.ToString(record.Density_at15Observed);
                 addRecordUserControl1.txtDensityDiff.Text = Convert.ToString(record.Density_difference);
             }
         }
