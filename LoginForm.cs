@@ -54,9 +54,10 @@ namespace GoilRecords
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something wnet wrong. Please try again", "Login Error");
+                //MessageBox.Show("Something wnet wrong. Please try again", "Login Error");
+                MessageBox.Show(ex.Message, "Error Message");
             }
         }
     }
